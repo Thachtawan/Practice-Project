@@ -1,0 +1,22 @@
+function pairElement(str) {
+  let newArr = [];
+  for (let i = 0; i < str.length; i++) {
+    newArr.push([]);
+    if (str[i] == "G") {
+      newArr[i].push("G");
+      newArr[i].push("C");
+    } else if (str[i] == "C") {
+      newArr[i].push("C");
+      newArr[i].push("G");
+    } else if (str[i] == "A") {
+      newArr[i].push("A");
+      newArr[i].push("T");
+    } else {
+      newArr[i].push("T");
+      newArr[i].push("A");
+    }
+  }
+  return newArr;
+}
+
+pairElement("GCG");

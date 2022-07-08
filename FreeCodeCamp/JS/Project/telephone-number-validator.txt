@@ -1,0 +1,25 @@
+function telephoneCheck(str) {
+  let usFormat = /^\d+/;
+  let numChk = [];
+  for (let i = 0; i < str.length; i++) {
+    numChk.push(str[i])
+  }
+  if (numChk[3] == "-" && numChk[7] == "-") {
+    return true
+  } else if (numChk[1] == " " && numChk[5] == "-" && numChk[9] == "-") {
+    return true
+  } else if (numChk[0] == 1 && numChk[1] == " " && numChk[2] == "(" && numChk[6] == ")" && numChk[11] == "-") {
+    return true
+  } else if (numChk.length == 10 && usFormat.test(str)) {
+    return true
+  } else if (numChk[1] == " " && numChk[5] == " " && numChk[9] == " ") {
+    return true
+  } else if (numChk[0] == "(" && numChk[4] == ")" && numChk[8] == "-") {
+    return true
+  } else if (numChk[0] == 1 && numChk[1] == "(" && numChk[5] == ")" && numChk[9] == "-") {
+    return true
+  }
+  return false
+}
+
+telephoneCheck("(555) 555-5555");

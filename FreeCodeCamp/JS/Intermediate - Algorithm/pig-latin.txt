@@ -1,0 +1,14 @@
+function translatePigLatin(str) {
+  let testString = /^[aeiou]/i;
+  let regEx = /^([bcdfghjklmnpqrstvwxyz]*)([aeiou])(\w+)/ig;
+  if (testString.test(str)) {
+    str += "way"
+  } else if (regEx.test(str)) {
+    str = str.replace(regEx, "$2$3$1") + "ay"
+  } else {
+    str += "ay"
+  }
+  return str;
+}
+
+translatePigLatin("consonant");

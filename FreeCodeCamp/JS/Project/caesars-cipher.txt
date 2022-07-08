@@ -1,0 +1,24 @@
+function rot13(str) {
+  let strArr = [];
+
+  for (let i of str) {
+    strArr.push(i.charCodeAt())
+  };
+  console.log(strArr);
+
+  let newStr = "";
+  for (let j = 0; j < strArr.length; j++) {
+    if (strArr[j] < 65 && strArr[j] < 90) {
+      newStr += String.fromCharCode(strArr[j]);
+    } else if (strArr[j] - 13 < 65) {
+      newStr += String.fromCharCode(strArr[j] + 13);
+    } else {
+      newStr += String.fromCharCode(strArr[j] - 13);
+    }
+  }
+  console.log(newStr)
+
+  return newStr;
+}
+
+rot13("SERR PBQR PNZC");

@@ -1,0 +1,23 @@
+function mutation(arr) {
+  let newArr1 = [];
+  let newArr2 = [];
+  let i = 0;
+  let result = true;
+  for (let char of arr[0]) {
+    newArr1.push(char.toLowerCase())
+  }
+  for (let char of arr[1]) {
+    newArr2.push(char.toLowerCase())
+  }
+  while (i < newArr2.length) {
+    if (newArr1.indexOf(newArr2[i]) >= 0) {
+      i++
+    } else {
+      result = false
+      i = newArr2.length
+    };
+  };
+  return result
+}
+
+mutation(["hello", "hey"]);

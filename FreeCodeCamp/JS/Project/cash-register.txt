@@ -1,0 +1,97 @@
+function checkCashRegister(price, cash, cid) {
+  let change = {
+    status: "INSUFFICIENT_FUNDS",
+    change: []
+  };
+  let changeRemain = cash - price;
+  console.log(changeRemain);
+
+  let sumCID = 0;
+  for (let i = 0; i < cid.length; i++) {
+    sumCID += Math.round(cid[i][1] * 100)
+  };
+  sumCID = sumCID / 100
+  console.log(sumCID);
+
+  let crcUnit = {
+    "PENNY": 0.01,
+    "NICKEL": 0.05,
+    "DIME": 0.1,
+    "QUARTER": 0.25,
+    "ONE": 1,
+    "FIVE": 5,
+    "TEN": 10,
+    "TWENTY": 20,
+    "ONE HUNDRED": 100
+  };
+
+  let unitAvaiable = [];
+  if (sumCID < changeRemain) {
+    return change;
+  } else if (sumCID == changeRemain) {
+    change.status = "CLOSED";
+    change.change = cid
+    return change
+  } else {
+    for (let key in crcUnit) {
+      if (crcUnit[key] <= changeRemain) {
+        unitAvaiable.unshift(key);
+      };
+      change.status = "OPEN";
+    }
+    console.log(unitAvaiable);
+    console.log(change);
+
+    let objForChange = {};
+    for (let unit of unitAvaiable) {
+      for (let i = 0; i < cid.length; i++) {
+        if (cid[i][0] == unit) {
+          let checkDigit = Math.round(cid[i][1] * 100);
+          console.log(checkDigit)
+          objForChange[cid[i][0]] = checkDigit / 100;
+        };
+      };
+    };
+
+    console.log(objForChange);
+
+    for (let key in objForChange) {
+      if (objForChange[key] > 0) {
+        if (changeRemain - objForChange[key] > 0) {
+          let checkDigit = Math.round((changeRemain - objForChange[key]) * 100) 
+          changeRemain = checkDigit / 100;
+          change.change.push([key, objForChange[key]]);
+          console.log(changeRemain)
+        } else if (changeRemain - objForChange[key] <= 0) {
+          if (changeRemain % crcUnit[key] != 0) {
+            if (Math.floor(changeRemain / crcUnit[key]) * crcUnit[key] == 0) {
+              console.log(changeRemain);
+              continue;
+            } else {
+              change.change.push([key, Math.floor(changeRemain / crcUnit[key]) * crcUnit[key]]);
+              let checkDigit = Math.round((changeRemain - Math.floor(changeRemain / crcUnit[key]) * crcUnit[key]) * 100)
+              changeRemain = checkDigit / 100;
+              console.log(changeRemain)
+            };
+          } else {
+            change.change.push([key, changeRemain]);
+            changeRemain = (changeRemain - Math.floor(changeRemain / crcUnit[key]) * crcUnit[key]).toFixed(2);
+            break;
+          };
+        };
+      } else {
+        continue;
+      };
+    };
+
+    if (changeRemain > 0) {
+      change.status = "INSUFFICIENT_FUNDS";
+      change.change = [];
+    };
+
+    console.log(change);
+    return change;
+  };
+};
+
+checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);

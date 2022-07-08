@@ -1,0 +1,139 @@
+:root {
+  --nav-color: rgb(145, 22, 53);
+  --welcome-backcolor: rgb(114, 149, 193);
+  --project-backcolor: rgb(114, 189, 193);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* FOR NAV BAR */
+
+.nav {
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  width: 100%;
+  background-color: var(--nav-color);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+ul {
+  display: flex;
+  margin-right: 1em;
+}
+
+li {
+  list-style-type: none;
+  margin-right: 1rem;
+  height: 100%;
+  width: 100%;
+}
+
+li:hover {
+  background-color: aliceblue;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+}
+
+/* FOR WELCOME AREA */
+.welcome {
+  height: 600px;
+  background-color: var(--welcome-backcolor);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.welcome > h1, .welcome > p {
+  color: white;
+  text-align: center;
+}
+
+/* FOR PROJECT AREA */
+
+#projects > h2 {
+  color: white;
+} 
+
+.project-section {
+  top: 0;
+  text-align: center;
+  padding: 2rem 2rem;
+  background: var(--project-backcolor);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 4rem;
+}
+
+.project-image {
+  height: calc(100% - 6.8rem);
+  width: 100%;
+  object-fit: cover;
+}
+
+/* FOR CONTACT AREA */
+.contact {
+  margin-top: -10px;
+  padding: 0;
+  height: 300px;
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact > h2 {
+  color: white;
+  width: 100vw;
+  font-size: 20px
+}
+
+
+/* FOR FOOTER AREA */
+footer {
+  padding: 2rem;
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  border-top: 3px solid red;
+}
+
+/* RESPONSIVE AREA */
+@media (max-width: 700px) {
+  .nav {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 500px) {
+  .welcome {
+    font-size: 20px;
+    height: 400px;
+  }
+  #projects > h2 {
+    font-size: 20px;
+  }
+}

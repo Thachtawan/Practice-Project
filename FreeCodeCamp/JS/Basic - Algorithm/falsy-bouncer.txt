@@ -1,0 +1,8 @@
+function bouncer(arr) {
+  let newArr = arr.filter(x => {
+    return Boolean(x) != false
+  });
+  return newArr
+}
+
+bouncer([7, "ate", "", false, 9]);

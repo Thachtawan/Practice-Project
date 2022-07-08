@@ -1,0 +1,10 @@
+function convertHTML(str) {
+  let origin = [/&/g, /</g, />/g, /"/g, /'/g];
+  let htmlEntities = ["&amp;", "&lt;", "&gt;", "&quot;", "&apos;"];
+  for (let i = 0; i < origin.length; i++) {
+    str = str.replace(origin[i], htmlEntities[i])
+  }
+  return str
+}
+
+convertHTML("Dolce & Gabbana");

@@ -1,0 +1,15 @@
+function factorialize(num) {
+  let count = 1;
+  let sum = 1;
+  if (num == 0) {
+    return sum
+  } else {
+    while (count < num) {
+      count++
+      sum *= count
+    }
+  }
+  return sum
+}
+
+factorialize(5);

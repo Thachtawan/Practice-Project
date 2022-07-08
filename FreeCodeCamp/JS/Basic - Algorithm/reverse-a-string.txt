@@ -1,0 +1,13 @@
+function reverseString(str) {
+  let str2 = []
+  let str3 = "";
+  for (let i = 0; i < str.length; i++) {
+    str2.push(str.charAt(i))
+  }
+  for (let j = str2.length - 1; j > -1; j--) {
+    str3 += str2[j]
+  }
+  return str3;
+}
+
+reverseString("hello");

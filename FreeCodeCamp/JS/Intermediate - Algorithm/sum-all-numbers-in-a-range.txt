@@ -1,0 +1,13 @@
+function sumAll(arr) {
+  let newArr = [...arr].sort((a, b) => a - b)
+  let firstNumber = newArr[0];
+  let secondNumber = newArr[1];
+  let sum = 0;
+  while (secondNumber >= firstNumber) {
+    sum += secondNumber;
+    secondNumber--
+  }
+  return sum;
+}
+
+sumAll([1, 4]);

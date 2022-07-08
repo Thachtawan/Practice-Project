@@ -1,0 +1,30 @@
+function sumFibs(num) {
+  let newArr = [];
+  let fiboValue = 0;
+  let arrIndex = 0;
+  let sum = 0;
+  while (fiboValue <= num) {
+    if (fiboValue == 0) {
+      fiboValue = 1;
+      newArr.push(fiboValue);
+    } else if (fiboValue == 1) {
+      if (newArr[1] == undefined) {
+        newArr.push(fiboValue);
+        fiboValue = 2;
+        arrIndex = 1;
+      }
+    } else {
+      newArr.push(fiboValue)
+      arrIndex += 1
+      fiboValue = newArr[arrIndex] + newArr[(arrIndex - 1)];
+    }
+  };
+  for (let i = 0; i < newArr.length; i++) {
+      if (newArr[i] % 2 != 0) {
+        sum += newArr[i]
+      }
+  }
+  return sum;
+}
+
+sumFibs(75025);
