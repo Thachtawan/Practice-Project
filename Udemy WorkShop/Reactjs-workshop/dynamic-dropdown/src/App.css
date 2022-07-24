@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+.navbar h1 {
+  margin: 0;
+  text-align: center;
+  margin-left: 20px;
+  font-size: 2rem;
+}
+
+.navbar {
+  height: 5rem;
+  width: 100%;
+  background-color: rgb(3, 89, 95);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  box-shadow: 0 2px 5px rgb(80, 80, 80);
+}
+
+.menu {
+  height: 2.5rem;
+  margin-right: 10px;
+  border-radius: 5px;
+  width: 200px;
+  box-shadow: 0 2px 5px rgb(117, 117, 117);
+  padding: 5px;
+}
+
+.food {
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.food-menu {
+  height: 500px;
+  width: 375px;
+  margin-right: 2rem;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgb(185, 185, 185);
+  margin-bottom: 2rem;
+}
+
+.food-menu:hover {
+  background-color:rgb(221, 221, 221);
+  cursor: pointer;
+}
+
+.food-menu:active {
+  transform: translateY(-2px);
+}
+
+.food-menu h2 {
+  text-align: center;
+  background-color: rgb(20, 145, 76);
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.food-menu img {
+  width: 100%;
+  height: 90%;
+  object-fit: cover;
+  border-radius: 2% 2% 2% 2%;
+  box-shadow: 0 2px 5px rgb(209, 209, 209);
+}
